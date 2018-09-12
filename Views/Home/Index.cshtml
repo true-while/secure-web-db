@@ -1,0 +1,27 @@
+﻿@using System.Text.RegularExpressions
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Security Demo Web Site</h1>
+    <p class="lead">This web site will be used for demo purpose and accept HTTPS connection.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Your Current IP Address</h2>
+        <p>
+            @Request.UserHostAddress
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Site DB Server</h2>
+        <p>@Regex.Match(Utils.DBConnectString, "(Source|Server)=(?<srv>[^;]*);").Groups["srv"].Value;</p>    
+    </div>
+    <div class="col-md-4">
+        <h2></h2>
+        <p></p>
+    </div>
+</div>
